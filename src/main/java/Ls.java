@@ -126,14 +126,11 @@ public class Ls {
         }
     }
 
-    public void getRWX() throws IOException {
+    public void getRWX() {
         try {
             for (int i = 0; i < content.length; i++) {
                 StringBuilder res = new StringBuilder();
                 File file = new File(directoryOrFile + "/" + content[i]);
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
                 Path path = file.toPath();
                 BasicFileAttributes attrib = Files.readAttributes(path, BasicFileAttributes.class);
                 if (isLong) {
