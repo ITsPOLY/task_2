@@ -52,9 +52,7 @@ public class Ls {
 
     public boolean isDirectory() {
         File file = new File(directoryOrFile);
-        if (file.isDirectory()) {
-            return true;
-        } else return false;
+        return file.isDirectory();
     }
 
     public void outputInfoFromFile() throws IOException {
@@ -68,7 +66,6 @@ public class Ls {
         fileParam.add("lastAccessTime: " + attrib.lastAccessTime().toString());
         fileParam.add("lastModifiedTime: " + attrib.lastModifiedTime().toString());
         fileParam.add("size: " + Long.toString(attrib.size()));
-
     }
 
     public void outputInfoFromDirectory() {
@@ -108,7 +105,6 @@ public class Ls {
                     pw.println(content[i]);
                     if (isLong || isHumanReadable) {
                         pw.println(fileParam.get(i));
-                        pw.println();
                     }
                 }
             } else {
